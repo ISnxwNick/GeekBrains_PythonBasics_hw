@@ -7,3 +7,21 @@
 Например, в первом задании выводим целые числа, начиная с 3, а при достижении числа 10 завершаем цикл.
 Во втором также необходимо предусмотреть условие, при котором повторение элементов списка будет прекращено.
 """
+from sys import argv
+from itertools import count
+from itertools import cycle
+
+method, a_start, a_stop, = argv
+a_start = int(a_start)
+a_stop = int(a_stop)
+
+if method == 'a':
+    for el in count(a_start):  # Вариант для a
+        if el > a_stop:
+            break
+        else:
+            print(el)
+elif method == 'b':
+'''
+Разбираюсь с cycle, надеюсь успею :)
+'''
