@@ -7,21 +7,27 @@
 Например, в первом задании выводим целые числа, начиная с 3, а при достижении числа 10 завершаем цикл.
 Во втором также необходимо предусмотреть условие, при котором повторение элементов списка будет прекращено.
 """
+
 from sys import argv
 from itertools import count
 from itertools import cycle
 
-method, a_start, a_stop, = argv
+method, a_start, a_stop, b_number = argv
 a_start = int(a_start)
 a_stop = int(a_stop)
+my_list = ['я', 'еле', 'успел', 'сдать', 'задачи']
+iterator = cycle(my_list)
 
 if method == 'a':
-    for el in count(a_start):  # Вариант для a
+    for el in count(a_start):    # Вариант для a
         if el > a_stop:
             break
         else:
             print(el)
-elif method == 'b':
+elif method == 'b':    # Вариант для b     
+    for el in range(b_number):
+        print(next(iterator))
 '''
-Разбираюсь с cycle, надеюсь успею :)
+и снова работа со скриптом, не выходит протестировать, буду гуглить, сразу оговорка что тут мы передаем параметры для обоих случаев a и b, пока не знаю как избежать этого
+(ну чтобы можно было б ввести параметры лишь для 1 подзадачи и не получить ошибку)
 '''
