@@ -6,3 +6,5 @@
 Результат: [23, 1, 3, 10, 4, 11]
 """
 input_list = list(map(int, input('Введите список через пробел: ').split()))
+new_list = [el for el in input_list if input_list.count(el) < 2]
+print('Список без повторений: ',new_list)
