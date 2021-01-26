@@ -27,9 +27,8 @@ class Car:
         return f'Машина {self.name} повернула направо'
 
     def turn_left(self):
-        return f'Машина {self.name} повернула направо'
+        return f'Машина {self.name} повернула налево'
 
-    @property
     def show_speed(self):
         return f'Машина {self.name} едет со скоростью {self.speed}'
 
@@ -71,9 +70,10 @@ Mercedes = SportCar(120, 'Черный', 'Mercedes', False)
 Kamaz = WorkCar(45, 'Белый', 'Kamaz', False)
 Ford = TownCar(55, 'Зеленый', 'Ford', False)
 Lada = PoliceCar(70, 'Синий', 'Lada', True)
-print(Mercedes.turn_left(), Lada.go())
+print(Mercedes.turn_right(), Lada.go())
 print(Lada.police())
 print(Ford.stop(), Kamaz.police())
-print(Mercedes.show_speed)
+print(Mercedes.show_speed())
 print(Ford.show_speed())
 print(Kamaz.show_speed())
+print(Lada.stop(), Kamaz.turn_left())
