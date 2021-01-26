@@ -52,7 +52,8 @@ class SportCar(PoliceCar):
 class TownCar(PoliceCar):
     limit = 60
     car_class_name = 'городской машины(60)'
-    def show_speed(self,):
+    
+    def show_speed(self):
         if self.speed > TownCar.limit:
             return f'Превышение {self.name} по скорости для {TownCar.car_class_name}, скорость: {self.speed}'
         else:
@@ -60,7 +61,7 @@ class TownCar(PoliceCar):
 
 
 class WorkCar(TownCar):
-    def show_speed(self,):
+    def show_speed(self):
         if self.speed > 40:
             return f'Превышение {self.name} по скорости для рабочей машины(40), скорость: {self.speed}'
         else:
