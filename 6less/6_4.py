@@ -52,26 +52,20 @@ class SportCar(PoliceCar):
 class TownCar(PoliceCar):
     limit = 60
     car_class_name = 'городской машины(60)'
-    
+
     def show_speed(self):
-        if self.speed > TownCar.limit:
-            return f'Превышение {self.name} по скорости для {TownCar.car_class_name}, скорость: {self.speed}'
+        if self.speed > self.limit:
+            return f'Превышение {self.name} по скорости для {self.car_class_name}, скорость: {self.speed}'
         else:
             return f'Машина {self.name} едет со скоростью {self.speed}'
 
 
 class WorkCar(TownCar):
-    def show_speed(self):
-        if self.speed > 40:
-            return f'Превышение {self.name} по скорости для рабочей машины(40), скорость: {self.speed}'
-        else:
-            return f'Машина {self.name} едет со скоростью {self.speed}'
-'''
-    limit = 40
-    car_class_name = 'рабочей машины(45)'
-Код одинаков для work и town, отличается лишь значение параметра, не понимаю как при наследовании заставить' \
-воспринимать эти параметры, переписал 'в лоб'. '
-'''
+    def __init__(self, speed, color, name, is_police: bool):
+        super().__init__(speed, color, name, is_police)
+        self.limit = 40
+        self.car_class_name = 'рабочей машины(45)'
+
 
 Mercedes = SportCar(120, 'Черный', 'Mercedes', False)
 Kamaz = WorkCar(45, 'Белый', 'Kamaz', False)
