@@ -11,28 +11,28 @@
 времени для каждого цвета.
 """
 from time import sleep
+from itertools import cycle
 
 
 class TrafficLight:
-    __condition = {
-        'красный': 7,
-        'желтый': 2,
-        'зеленый': 9
-    }
+    def __init__(self):
+        self.__condition = {
+            'красный': 6,
+            'желтый': 2,
+            'зеленый': 8
+        }
+        self.colors = cycle(self.__condition.keys())
+        self.current_color = next(self.colors)
+        self.timer = cycle(self.__condition.values())
+        self.current_time = next(self.timer)
 
-    def switch(self):
-        for color, sleep_time in self.__condition.items():
-            self.__color = color  # pycharm тут настаивает на перенос атрибута в init, не понимаю зачем
-            print(f'Светофор переключился на {color} цвет на {sleep_time} секунд')
-            sleep(sleep_time)
+    def running(self):
+        while True:
+            print(f'Горит {self.current_color}, задержка {self.current_time}')
+            sleep(self.current_time)
+            self.current_color = next(self.colors)
+            self.current_time = next(self.timer)
 
 
-class Threads(TrafficLight):
-    def check(self):
-        pass
-'''
-Вообще не понимаю как реализовать эту проверку, подскажите пожалуйста, ведь нарушения быть не может 
-тк режимы переключались в цикле в родительском switch, но тем не менее
-'''
-svetofor = TrafficLight()
-svetofor.switch()
+a = TrafficLight()
+a.running()
