@@ -36,7 +36,7 @@ class Cell:
     def __sub__(self, other):
         if self.count > other.count:
             return Cell(self.count - other.count)
-        print(f"{self.count} - {other.count} < 0")  # Как избавиться от None при таком случае?
+        f"{self.count} - {other.count} < 0"
 
     def __mul__(self, other):
         return Cell(self.count * other.count)
