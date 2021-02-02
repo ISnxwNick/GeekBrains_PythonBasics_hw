@@ -36,7 +36,8 @@ class Cell:
     def __sub__(self, other):
         if self.count > other.count:
             return Cell(self.count - other.count)
-        f"{self.count} - {other.count} < 0"
+        else:
+            return f"{self.count} - {other.count} < 0"
 
     def __mul__(self, other):
         return Cell(self.count * other.count)
