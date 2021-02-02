@@ -24,3 +24,42 @@
 строку: *****\n*****\n*****.
 Подсказка: подробный список операторов для перегрузки доступен по ссылке.
 """
+
+
+class Cell:
+    def __init__(self, count):
+        self.count = count
+
+    def __add__(self, other):
+        return Cell(self.count + other.count)
+
+    def __sub__(self, other):
+        if self.count > other.count:
+            return Cell(self.count - other.count)
+        print(f"{self.count} - {other.count} < 0")  # Как избавиться от None при таком случае?
+
+    def __mul__(self, other):
+        return Cell(self.count * other.count)
+
+    def __truediv__(self, other):
+        return Cell(self.count // other.count)
+
+    def __str__(self):
+        return f'Результат: {self.count * "*"}'
+
+    def make_order(self, row):
+        string = ''
+        for i in range(self.count // row):
+            string += fr'{"*" * row}\n'
+        string += f'{"*" * (self.count % row)}'
+        return string
+
+
+cells1 = Cell(30)
+cells2 = Cell(15)
+print(cells1 + cells2)
+print(cells1 - cells2)
+print(cells2 - cells1)
+print(cells1 / cells2)
+print(cells1.make_order(5))
+print(cells2.make_order(7))
