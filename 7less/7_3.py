@@ -34,10 +34,10 @@ class Cell:
         return Cell(self.count + other.count)
 
     def __sub__(self, other):
-        if self.count > other.count:
+        if self.count - other.count > 0:
             return Cell(self.count - other.count)
         else:
-            return f"{self.count} - {other.count} < 0"
+            raise ValueError(f"{self.count} - {other.count}: < 0")
 
     def __mul__(self, other):
         return Cell(self.count * other.count)
@@ -60,7 +60,7 @@ cells1 = Cell(30)
 cells2 = Cell(15)
 print(cells1 + cells2)
 print(cells1 - cells2)
-print(cells2 - cells1)
 print(cells1 / cells2)
 print(cells1.make_order(5))
 print(cells2.make_order(7))
+print(cells2 - cells1)
