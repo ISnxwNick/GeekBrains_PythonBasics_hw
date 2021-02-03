@@ -5,7 +5,7 @@
 '''
 my_list = input('Введите список через пробел: ').split()
 l = len(my_list)
-for i in range(l):
-    if i % 2 == 0 and i + 1 < l:
+for i in range(0, l, 2):
+    if i + 1 < l:
         my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
 print(my_list)
