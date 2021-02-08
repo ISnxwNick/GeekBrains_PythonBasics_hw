@@ -1,0 +1,5 @@
+Petrov 30
+Ivanov 20
+Smith 15
+Sidorov 50
+Smirnov 19
