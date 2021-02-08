@@ -10,12 +10,13 @@
 '''
 my_list = [7, 5, 3, 3, 2]
 n = int(input('Введите число: '))
-b = False  # проверяет добавился ли новый элемент
+index = -1  # проверяет добавился ли новый элемент
 for i in range(len(my_list)):
     if n > my_list[i]:
-        my_list.insert(i, n)
-        b = True
+        index = i
         break
-if not b:
+if index != -1:
+    my_list.insert(index, n)
+else:
     my_list.append(n)
 print(my_list)
