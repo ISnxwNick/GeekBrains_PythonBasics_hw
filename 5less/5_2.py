@@ -9,11 +9,9 @@ with open(r'2.txt', 'w') as f:
         words = 0
         my_string = list(map(str, input('Введите строку: ').split()))
         if my_string:
-            for word in my_string:
-                words += 1
             lines += 1
             f.write(f"Введенная строка: {' '.join(map(str, my_string))}")
-            f.write(f'\nКоличество слов в строке: {words}\n')
+            f.write(f'\nКоличество слов в строке: {len(my_string)}\n')
         else:
             not_empty = False
     f.write(f'\nКоличество введенных строк: {lines}')
